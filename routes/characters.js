@@ -2,11 +2,12 @@ var express = require('express');
 var router = express.Router();
 const Characters = require('../store/Characters')
 
-router.get('/', function(_, res) {
-    Characters.getAll().then((response) => {
-        return response.data.data.results;
+router.get('/:offset?', function(req, res) {
+    let limitPerPage = 10
+    Characters.getAll(limitPerPage, req.params.offset).then((response) => {
+        return response.data.data;
     }).then((characters) => {
-        res.render('characters/index', { characters });
+        res.render('characters/index', { characters, limitPerPage });
     }).catch(error => {
         console.log("deu pau")
     });
