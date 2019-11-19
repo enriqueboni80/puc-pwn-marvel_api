@@ -1,17 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Characters = require('../store/Characters');
-var pagination = require('pagination');
-
-function montarPaginacao(totalCharacters, limitPerPage, currentPage = 0) {
-    var paginator = pagination.create('search', {
-        prelink: '/characters',
-        current: currentPage,
-        rowsPerPage: limitPerPage,
-        totalResult: totalCharacters
-    });
-    return paginator.render()
-}
+var util = require('../helpers/util')
 
 router.get('/', function(req, res) {
     let limitPerPage = 10
@@ -24,7 +14,7 @@ router.get('/', function(req, res) {
     }).then((characters) => {
         res.render('characters/index', {
             characters,
-            paginacao: montarPaginacao(characters.total, limitPerPage, req.query.page)
+            paginacao: util.montarPaginacao(characters.total, limitPerPage, req.query.page)
         });
     }).catch(error => {
         console.log("deu pau")
