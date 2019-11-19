@@ -8,6 +8,7 @@ const passport = require('passport');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var charactersRouter = require('./routes/characters');
+var authRouter = require('./routes/auth');
 const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
 
@@ -30,6 +31,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
+app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 app.use('/characters', charactersRouter);
 app.use('/login', loginRouter);
