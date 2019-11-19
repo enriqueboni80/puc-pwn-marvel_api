@@ -3,7 +3,7 @@ var router = express.Router();
 var Characters = require('../store/Characters');
 var pagination = require('pagination');
 
-function montarPaginacao(totalCharacters, limitPerPage, currentPage) {
+function montarPaginacao(totalCharacters, limitPerPage, currentPage = 0) {
     var paginator = pagination.create('search', {
         prelink: '/characters',
         current: currentPage,
