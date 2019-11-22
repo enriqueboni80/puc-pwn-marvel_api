@@ -17,7 +17,7 @@ router.get('/', function(req, res) {
             paginacao: util.montarPaginacao(characters.total, limitPerPage, req.query.page)
         });
     }).catch(error => {
-        console.log("deu pau")
+        console.log("\x1b[31m","deu pau!   (ノಠ益ಠ)ノ彡┻━┻ ")
     });
 })
 
@@ -27,7 +27,7 @@ router.get('/name/:name', function(req, res) {
     }).then((characters) => {
         res.render('characters/profile', { character: characters[0] });
     }).catch(error => {
-        console.log("deu pau")
+        console.log("\x1b[31m","deu pau!   (ಥ﹏ಥ)  ")
     });
 })
 
@@ -37,7 +37,7 @@ router.get('/id/:id', function(req, res) {
     }).then((characters) => {
         res.render('characters/profile', { character: characters[0] });
     }).catch(error => {
-        console.log("deu pau")
+        console.log("\x1b[31m","deu pau!  ლ(ಠ益ಠლ)   ")
     });
 })
 

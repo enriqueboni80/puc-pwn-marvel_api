@@ -1,12 +1,13 @@
+require('dotenv').load();
+
 const passport = require("passport");
 const GitHubStrategy = require("passport-github").Strategy;
-const env = require("../env")
 
 passport.use(
     new GitHubStrategy({
-            clientID: env.git_api_clientID,
-            clientSecret: env.git_api_clientSecret,
-            callbackURL: env.git_api_callbackURL
+            clientID: process.env.GIT_API_CLIENT_ID,
+            clientSecret: process.env.GIT_API_CLIENT_SECRET,
+            callbackURL: process.env.GIT_API_CALLBACK_URL
         },
         function(accessToken, refreshToken, profile, done) {
             return done(undefined, profile);

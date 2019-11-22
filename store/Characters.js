@@ -1,7 +1,9 @@
-const axios = require('axios')
-const env = require('../env')
+require('dotenv').load();
 
-const url_params = `?ts=${env.marvel_api_ts}&apikey=${env.marvel_api_apikey}&hash=${env.marvel_api_hash}`
+const axios = require('axios')
+
+const url_params = `?ts=${process.env.MARVEL_API_TS}&apikey=${process.env.MARVEL_API_APIKEY}&hash=${process.env.MARVEL_API_HASH}`
+
 const marvel_url = `https://gateway.marvel.com:443/v1/public/characters`
 
 module.exports = {
