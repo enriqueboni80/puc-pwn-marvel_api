@@ -10,4 +10,6 @@ RUN chmod +x ./entrypoint.sh && npm install --production
 
 ENTRYPOINT ["/sbin/tini", "--"]
 
-CMD ["./entrypoint.sh"]
+RUN npm install
+
+CMD [ "npm", "start" ]
