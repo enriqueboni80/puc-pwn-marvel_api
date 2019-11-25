@@ -14,6 +14,7 @@ const logoutRouter = require('./routes/logout');
 
 var app = express();
 require('./configs/github.strategy');
+require('./configs/local.strategy');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
