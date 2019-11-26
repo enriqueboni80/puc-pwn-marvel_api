@@ -2,10 +2,13 @@ var express = require('express');
 var router = express.Router();
 var auth = require('../helpers/ensureAuthenticated')
 const Users = require('../store/Users');
+const favorites = require('../store/Favorites');
 
 
 router.get('/', auth.ensureAuthenticated, function(req, res, next) {
-    res.render('user/index')
+    favorites.getUserFavorites(req.user[0].id).then(favorites => {
+        res.render('user/index', { user: req.user[0], favorites })
+    })
 });
 
 router.get('/create', function(req, res, next) {

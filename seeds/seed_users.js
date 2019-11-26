@@ -5,14 +5,14 @@ exports.seed = function(knex) {
             // Inserts seed entries
             return knex('users').insert([{
                     id: 1,
-                    name: 'Ayrton Senna',
-                    email: 'sena@sena.com.br',
-                    password: '12345'
+                    name: 'Enrique',
+                    email: 'enrique@teste.com',
+                    password: '123'
                 },
                 {
                     id: 2,
                     name: 'prost',
-                    email: 'prost@prost.fr'
+                    email: 'prost@prost.fr',
                     password: '12345'
                 },
             ]);
