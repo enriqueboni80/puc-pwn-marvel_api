@@ -11,15 +11,17 @@ router.get('/', auth.ensureAuthenticated, function(req, res, next) {
         Users.getByEmail(req.user.username).then(function(user) {
             clienteID = user[0].id
             displayName = user[0].name
+            favorites.getUserFavorites(clienteID).then(favorites => {
+                res.render('user/index', { displayName, favorites })
+            })
         })
     } else {
         clienteID = req.user[0].id
         displayName = req.user[0].name
+        favorites.getUserFavorites(clienteID).then(favorites => {
+            res.render('user/index', { displayName, favorites })
+        })
     }
-
-    favorites.getUserFavorites(45).then(favorites => {
-        res.render('user/index', { displayName, favorites })
-    })
 });
 
 router.get('/create', function(req, res, next) {
