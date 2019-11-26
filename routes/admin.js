@@ -7,7 +7,7 @@ const Users = require('../store/Users');
 router.get('/users', auth.ensureAuthenticated, function(req, res, next) {
     Users.getAll()
         .then(users => {
-            res.render('users', { users });
+            res.render('admin/users', { users });
         })
 });
 

@@ -4,7 +4,7 @@ var passport = require('passport')
 
 router.post('/login',
     passport.authenticate('local', {
-        successRedirect: '/users',
+        successRedirect: '/user',
         failureRedirect: '/login'
     })
 );
@@ -15,7 +15,7 @@ router.get('/github/callback',
     passport.authenticate('github', { failureRedirect: '/login' }),
     function(req, res) {
         // Successful authentication, redirect home.
-        res.redirect('/users');
+        res.redirect('/user');
     });
 
 module.exports = router;
