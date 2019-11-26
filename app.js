@@ -6,11 +6,12 @@ var logger = require('morgan');
 const passport = require('passport');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var userRouter = require('./routes/user');
 var charactersRouter = require('./routes/characters');
 var authRouter = require('./routes/auth');
 const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
+const adminRouter = require('./routes/admin');
 
 var app = express();
 require('./configs/github.strategy');
@@ -33,10 +34,11 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
-app.use('/users', usersRouter);
+app.use('/user', userRouter);
 app.use('/characters', charactersRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
+app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
