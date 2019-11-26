@@ -5,8 +5,8 @@ const db = knex(knexConfigs.development)
 const TABLE_NAME = 'favorites'
 
 module.exports = {
-    getUserFavorites(id_user) {
-        return db(TABLE_NAME).select('*')
+    getUserFavorites(clientID) {
+        return db(TABLE_NAME).where('id_user', clientID)
     },
     getByID(id) {
         return db(TABLE_NAME).where('id', id)
