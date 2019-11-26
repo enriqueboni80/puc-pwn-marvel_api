@@ -14,10 +14,10 @@ module.exports = {
     insert(user) {
         return db(TABLE_NAME).insert(user);
     },
-    auth(user) {
+    auth(email, password) {
         return db(TABLE_NAME).where({
-            email: user.email,
-            password: user.password
+            email: email,
+            password: password
         })
     }
     /* delete(product) {
