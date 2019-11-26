@@ -21,13 +21,16 @@ router.post('/store', function(req, res, next) {
         email: req.body.email,
         password: req.body.password
     }
-    Users.insert(user).then(function() {
-        res.send('criado com sucesso')
-    })
-});
 
-router.post('/auth', function(req, res, next) {
-    res.send('autenticado - fazer tela')
+    Users.getByEmail(user.email).then(teste => {
+        if (teste.length == 0) {
+            Users.insert(user).then(function() {
+                res.send('criado com sucesso')
+            })
+        } else {
+            res.send('esse email já existe')
+        }
+    })
 });
 
 module.exports = router;

@@ -8,8 +8,8 @@ passport.use(new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password'
     },
-    function(username, password, done) {
-        User.auth(username, password).then(function(user, err) {
+    function(email, password, done) {
+        User.auth(email, password).then(function(user, err) {
             if (user.length <= 0) {
                 console.log('nao autenticou')
                 return done(null, false, { message: 'Incorrect username.' });

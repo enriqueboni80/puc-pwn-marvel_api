@@ -11,6 +11,9 @@ module.exports = {
     getByID(id) {
         return db(TABLE_NAME).where('id', id)
     },
+    getByEmail(email) {
+        return db(TABLE_NAME).where('email', email)
+    },
     insert(user) {
         return db(TABLE_NAME).insert(user);
     },
