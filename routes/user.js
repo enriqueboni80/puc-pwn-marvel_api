@@ -49,7 +49,7 @@ router.get('/store-social-network', function(req, res, next) {
     user = {
         name: req.user.displayName,
         email: req.user.username,
-        password: '123'
+        password: Math.random().toString(36).substring(0, 7)
     }
     Users.getByEmail(user.email).then(email => {
         if (email.length == 0) {
