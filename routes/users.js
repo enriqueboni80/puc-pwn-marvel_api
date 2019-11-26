@@ -5,7 +5,6 @@ const Users = require('../store/Users');
 
 /* GET users listing. */
 router.get('/', auth.ensureAuthenticated, function(req, res, next) {
-    //router.get('/', function(req, res, next) {
     Users.getAll()
         .then(users => {
             res.render('users', { users });

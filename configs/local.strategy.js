@@ -10,7 +10,10 @@ passport.use(new LocalStrategy({
     },
     function(username, password, done) {
         User.auth(username, password).then(function(user, err) {
-            console.log('era pra ter funcionado')
+            if (user.length <= 0) {
+                console.log('nao autenticou')
+                return done(null, false, { message: 'Incorrect username.' });
+            }
             return done(null, user);
         })
     }
