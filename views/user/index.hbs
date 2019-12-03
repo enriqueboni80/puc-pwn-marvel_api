@@ -1,10 +1,8 @@
 <h1>Area do usuario</h1>
 Seja bem-vindo {{displayName}}<br><br>
-
 <h2>Lista de favoritos</h2>
 {{#each favorites}}
-{{this.name_character}}<br>
+<a href="/characters/id/{{this.id_character}}">{{this.name_character}}</a><br>
 {{/each}}
-
 <br><br><br>
 <a href="/characters">listar todos os herois</a>
