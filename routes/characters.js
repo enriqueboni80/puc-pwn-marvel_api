@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var Characters = require('../store/Characters');
+var Favorites = require('../store/Favorites');
+var Users = require('../store/Users');
 var util = require('../helpers/util')
 var auth = require('../helpers/ensureAuthenticated')
 
@@ -40,6 +42,27 @@ router.get('/id/:id', auth.ensureAuthenticated, function(req, res) {
     }).catch(error => {
         console.log("\x1b[31m", "deu pau!  ლ(ಠ益ಠლ)   ")
     });
+})
+
+
+router.get('/favorites', function(req, res) {
+    if (req.user.username) {
+        Users.getByEmail(req.user.username).then(function(user) {
+            clienteID = user[0].id
+        })
+    } else {
+        clienteID = req.user[0].id
+    }
+
+    var favorite = {
+        id_user: clienteID,
+        id_character: req.query.id,
+        name_character: req.query.name
+    }
+    Favorites.store(favorite).then(function() {
+        res.redirect('/user')
+    })
+
 })
 
 module.exports = router;

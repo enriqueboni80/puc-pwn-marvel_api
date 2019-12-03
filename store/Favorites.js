@@ -11,8 +11,8 @@ module.exports = {
     getByID(id) {
         return db(TABLE_NAME).where('id', id)
     },
-    insert(user) {
-        return db(TABLE_NAME).insert(user);
+    store(favorite) {
+        return db(TABLE_NAME).insert(favorite);
     }
     /* delete(product) {
         return db(TABLE_NAME)
