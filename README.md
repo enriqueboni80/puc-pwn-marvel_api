@@ -15,6 +15,23 @@ busca);
 detalhes: Nome; Foto; Descrição;
 
 
+## Antes de começar
+##### Configurar as variaveis de ambiente
+```
+copy .env__default .env
+```
+##### Instalar as dependências
+```
+npm install
+```
+##### Rodar a migrate para criar o banco
+```
+npm run knex migrate:latest
+```
+##### Start na aplicacao
+```
+npm start
+```
 
 ## comandos para rodar o docker
 ##### Rodar na root onde está o Dockerfile para gerar a imagem
