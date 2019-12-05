@@ -15,11 +15,12 @@ busca);
 detalhes: Nome; Foto; Descrição;
 
 
-## Antes de começar
+## Configuracoes Iniciais
 ##### Configurar as variaveis de ambiente
 ```
 copy .env__default .env
 ```
+* Configurar o arquivo .env seguindo as instrucoes que estao dentro do proprio arquivo
 ##### Instalar as dependências
 ```
 npm install
