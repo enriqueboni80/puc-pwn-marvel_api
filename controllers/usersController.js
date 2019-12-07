@@ -84,12 +84,15 @@ module.exports = {
         if (req.user.username) {
             Users.getByEmail(req.user.username).then(function(user) {
                 userID = user[0].id
+                Favorites.delete(characterID, userID).then(function() {
+                    res.redirect('/user')
+                })
             })
         } else {
             userID = req.user[0].id
+            Favorites.delete(characterID, userID).then(function() {
+                res.redirect('/user')
+            })
         }
-        Favorites.delete(characterID, userID).then(function() {
-            res.redirect('/user')
-        })
     }
 }
