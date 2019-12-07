@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var auth = require('../helpers/ensureAuthenticated')
 const Users = require('../store/Users');
-const favorites = require('../store/Favorites');
+var Favorites = require('../store/Favorites');
 
 
 router.get('/', auth.ensureAuthenticated, function(req, res, next) {
@@ -11,14 +11,14 @@ router.get('/', auth.ensureAuthenticated, function(req, res, next) {
         Users.getByEmail(req.user.username).then(function(user) {
             clienteID = user[0].id
             displayName = user[0].name
-            favorites.getUserFavorites(clienteID).then(favorites => {
+            Favorites.getUserFavorites(clienteID).then(favorites => {
                 res.render('user/index', { displayName, favorites })
             })
         })
     } else {
         clienteID = req.user[0].id
         displayName = req.user[0].name
-        favorites.getUserFavorites(clienteID).then(favorites => {
+        Favorites.getUserFavorites(clienteID).then(favorites => {
             res.render('user/index', { displayName, favorites })
         })
     }
@@ -60,5 +60,47 @@ router.get('/store-social-network', function(req, res, next) {
         res.redirect('/user')
     })
 });
+
+router.get('/favorites', function(req, res) {
+    if (req.user.username) {
+        Users.getByEmail(req.user.username).then(function(user) {
+            userID = user[0].id
+            var favorite = {
+                id_user: userID,
+                id_character: req.query.id,
+                name_character: req.query.name
+            }
+            Favorites.store(favorite).then(function() {
+                res.redirect('/user')
+            })
+        })
+    } else {
+        userID = req.user[0].id
+        var favorite = {
+            id_user: userID,
+            id_character: req.query.id,
+            name_character: req.query.name
+        }
+        Favorites.store(favorite).then(function() {
+            res.redirect('/user')
+        })
+    }
+
+})
+
+
+router.get('/favorites/delete/:characterID', function(req, res) {
+    characterID = req.params.characterID
+    if (req.user.username) {
+        Users.getByEmail(req.user.username).then(function(user) {
+            userID = user[0].id
+        })
+    } else {
+        userID = req.user[0].id
+    }
+    Favorites.delete(characterID, userID).then(function() {
+        res.redirect('/user')
+    })
+})
 
 module.exports = router;

@@ -45,24 +45,4 @@ router.get('/id/:id', auth.ensureAuthenticated, function(req, res) {
 })
 
 
-router.get('/favorites', function(req, res) {
-    if (req.user.username) {
-        Users.getByEmail(req.user.username).then(function(user) {
-            clienteID = user[0].id
-        })
-    } else {
-        clienteID = req.user[0].id
-    }
-
-    var favorite = {
-        id_user: clienteID,
-        id_character: req.query.id,
-        name_character: req.query.name
-    }
-    Favorites.store(favorite).then(function() {
-        res.redirect('/user')
-    })
-
-})
-
 module.exports = router;

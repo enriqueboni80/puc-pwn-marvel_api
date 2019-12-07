@@ -13,13 +13,15 @@ module.exports = {
     },
     store(favorite) {
         return db(TABLE_NAME).insert(favorite);
-    }
-    /* delete(product) {
+    },
+    delete(characterID, userID) {
+        console.log(characterID, userID)
         return db(TABLE_NAME)
-            .where('id', product.id)
+            .where('id_character', characterID)
+            .where('id_user', userID)
             .del();
     },
-    update(product) {
+    /* update(product) {
         return db(TABLE_NAME)
             .where('id', product.id)
             .update({
