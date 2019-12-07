@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport')
+var teste = require('../controllers/authController')
 
 router.post('/login',
     passport.authenticate('local', {
