@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "start": "nodemon ./bin/www | sass --watch ./src/scss/login.scss ./public/stylesheets/login.css",
+        "start": "sass --watch ./src/scss/login.scss ./public/stylesheets/login.css | nodemon ./bin/www",
         "knex": "./node_modules/.bin/knex"
     },
     "dependencies": {
