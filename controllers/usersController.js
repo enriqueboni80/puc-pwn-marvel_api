@@ -21,7 +21,7 @@ module.exports = {
         }
     },
     create(req, res, next) {
-        res.render('user/create')
+        res.render('user/create', { custom_css: 'login.css' })
     },
     store(req, res, next) {
         user = {
