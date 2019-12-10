@@ -3,7 +3,8 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "start": "sass --watch ./src/scss/login.scss ./public/stylesheets/login.css | nodemon ./bin/www",
+        "install-globals": "npm install gulp-cli -g",
+        "start": "gulp | nodemon ./bin/www",
         "knex": "./node_modules/.bin/knex"
     },
     "dependencies": {
@@ -15,6 +16,9 @@
         "dotenv": "^6.2.0",
         "express": "~4.16.1",
         "express-session": "^1.17.0",
+        "gulp": "^4.0.2",
+        "gulp-sass": "^4.0.2",
+        "gulp-watch": "^5.0.1",
         "hbs": "~4.0.4",
         "http-errors": "~1.6.3",
         "knex": "^0.20.2",
@@ -26,7 +30,5 @@
         "passport-local": "^1.0.0",
         "sqlite3": "^4.1.0"
     },
-    "devDependencies": {
-        "sass": "^1.23.7"
-    }
+    "devDependencies": {}
 }

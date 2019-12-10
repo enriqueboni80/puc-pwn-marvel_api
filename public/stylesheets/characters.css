@@ -1,0 +1,27 @@
+.paginator {
+  border: 1px solid #d0d0db;
+  padding: 10px;
+  border-radius: 4%;
+  width: 370px; }
+
+.paginator-current {
+  background-color: blue;
+  text-decoration: none;
+  padding: 12px;
+  border-left: 1px solid #d0d0db;
+  border-right: 1px solid #d0d0db; }
+
+.paginator-previous {
+  padding: 12px; }
+
+.paginator-next {
+  padding: 12px; }
+
+.paginator-previous {
+  padding: 12px; }
+
+.paginator-page {
+  text-decoration: none;
+  padding: 12px;
+  border-left: 1px solid #d0d0db;
+  border-right: 1px solid #d0d0db; }

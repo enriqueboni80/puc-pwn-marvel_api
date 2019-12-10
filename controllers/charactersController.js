@@ -12,6 +12,7 @@ module.exports = {
             return response.data.data;
         }).then((characters) => {
             res.render('characters/index', {
+                custom_css: 'characters.css',
                 characters,
                 paginacao: util.montarPaginacao(characters.total, limitPerPage, req.query.page)
             });
