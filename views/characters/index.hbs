@@ -3,6 +3,9 @@
 <h1>Characters</h1>
 <p>Welcome to Characters</p>
 
+{{#montarGrid characters.results}}
+{{/montarGrid}}
+
 {{#each characters.results}}
 <a href="/characters/id/{{this.id}}">{{this.name}}</a><br>
 {{/each}}

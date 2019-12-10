@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const passport = require('passport');
+var exphbs = require('express-handlebars');
+
 
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/user');
@@ -19,6 +21,12 @@ require('./configs/local.strategy');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+var hbs = exphbs.create({
+    helpers: require('./helpers/handlebars'),
+    defaultLayout: '../layout',
+    extname: 'hbs'
+});
+app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
