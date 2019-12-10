@@ -3,14 +3,10 @@
 <h1>Characters</h1>
 <p>Welcome to Characters</p>
 
-{{!-- {{#montarGrid characters.results 4}}
-{{/montarGrid}} --}}
-
+{{!-- {{#montarGridHtmlCharacters characters.results 5}}
+{{/montarGridHtmlCharacters}} --}}
 
 {{#each characters.results}}
-{{#divisivelPor 5 @index}}
-true
-{{/divisivelPor}}
 <a href="/characters/id/{{this.id}}">{{this.name}}</a><br>
 {{/each}}
 
