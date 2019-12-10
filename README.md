@@ -20,7 +20,12 @@ detalhes: Nome; Foto; Descrição;
 ```
 copy .env__default .env
 ```
-* Configurar o arquivo .env seguindo as instrucoes que estao dentro do proprio arquivo
+* Configurar o arquivo .env seguindo as instrucoes que estao dentro do proprio arquivo]
+##### Instalar as dependências GLOBAIS
+```
+npm run install-globals
+```
+
 ##### Instalar as dependências
 ```
 npm install
