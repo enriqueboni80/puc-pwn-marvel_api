@@ -5,11 +5,11 @@ module.exports = {
     bar: function() {
         return "BAR!";
     },
-    divisivelPor: function(columns, index) {
+    divisivelPor: function(columns, index, opts) {
         if (index % columns === 0) {
-            return "pin"
+            return opts.fn(this)
         } else {
-            return index
+            return opts.inverse(this)
         }
     }
 }

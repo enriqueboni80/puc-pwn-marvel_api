@@ -8,7 +8,9 @@
 
 
 {{#each characters.results}}
-{{#divisivelPor 5 @index}}{{/divisivelPor}}
+{{#divisivelPor 5 @index}}
+true
+{{/divisivelPor}}
 <a href="/characters/id/{{this.id}}">{{this.name}}</a><br>
 {{/each}}
 
