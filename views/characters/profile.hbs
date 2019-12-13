@@ -1,7 +1,26 @@
-<h1>Characters</h1>
-<p>Welcome to Character</p>
-
-{{character.id}}<br />
-{{character.name}}<br />
-<img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}">
-{{character.description}}<br />
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="card mb-10 shadow-sm" style="text-align: center;">
+                <a href="/characters/id/{{character.id}}">
+                    <img style="width: 60%"
+                        src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="">
+                </a>
+                <div class="card-body">
+                    <p class="card-text">{{character.name}}</p>
+                    <p class="card-text">{{character.description}}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <form action="/user/favorites" method="post">
+                                <input type="hidden" name="name" value="{{caracter.name}}">
+                                <input type="hidden" name="image_path"
+                                    value="{{this.thumbnail.path}}.{{caracter.thumbnail.extension}}">
+                                <button class="btn btn-sm btn-outline-secondary" type="submit">Favorite</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

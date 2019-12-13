@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var auth = require('../helpers/ensureAuthenticated')
+var admin = require('../controllers/adminController')
+
 
 /* GET users listing. */
-router.get('/', auth.ensureAuthenticated, function(req, res, next) {
-    res.send('respond with a resource');
-});
+router.get('/users', auth.ensureAuthenticated, admin.getAllUsers);
 
 module.exports = router;
