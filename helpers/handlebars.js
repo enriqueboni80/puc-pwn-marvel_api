@@ -12,6 +12,13 @@ module.exports = {
             return opts.inverse(this)
         }
     },
+    if_array_is_empty: function(array, opts) {
+        if (array.length == 0) {
+            return opts.fn(this)
+        } else {
+            return opts.inverse(this)
+        }
+    },
     montarGridHtmlCharacters: function(arrayOfThings, columns) {
         var line = []
         var result = []

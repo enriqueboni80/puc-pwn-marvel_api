@@ -1,6 +1,12 @@
 <h1>Characters</h1>
 <p>Welcome to Character</p>
-<p><a href="/user/favorites?id={{character.id}}&name={{character.name}}">Marcar como favorito</a></p>
+
+<form action="/user/favorites" method="post">
+    <input type="hidden" name="id" value="{{character.id}}">
+    <input type="hidden" name="name" value="{{character.name}}">
+    <input type="hidden" name="image_path" value="{{character.thumbnail.path}}.{{character.thumbnail.extension}}">
+    <button type="submit">salvar como favorito</button>
+</form>
 
 {{character.id}}<br />
 {{character.name}}<br />

@@ -60,19 +60,22 @@ module.exports = {
                 userID = user[0].id
                 var favorite = {
                     id_user: userID,
-                    id_character: req.query.id,
-                    name_character: req.query.name
+                    id_character: req.body.id,
+                    name_character: req.body.name,
+                    image_path: req.body.image_path
                 }
                 Favorites.store(favorite).then(function() {
                     res.redirect('/user')
                 })
             })
         } else {
+            console.log('chegou aqui')
             userID = req.user[0].id
             var favorite = {
                 id_user: userID,
-                id_character: req.query.id,
-                name_character: req.query.name
+                id_character: req.body.id,
+                name_character: req.body.name,
+                image_path: req.body.image_path
             }
             Favorites.store(favorite).then(function() {
                 res.redirect('/user')

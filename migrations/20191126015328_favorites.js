@@ -3,6 +3,7 @@ exports.up = function(knex) {
         table.integer('id_user')
         table.integer('id_character')
         table.string('name_character')
+        table.string('image_path')
     })
 };
 
