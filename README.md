@@ -34,6 +34,13 @@ npm install
 ```
 npm run knex migrate:latest
 ```
+
+##### rodar seed para primeira inserção nas tabelas
+```
+npm run knex seed:run
+```
+
+
 ##### Start na aplicacao
 ```
 npm start
