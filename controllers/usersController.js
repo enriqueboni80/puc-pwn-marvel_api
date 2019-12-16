@@ -1,6 +1,20 @@
-var auth = require('../helpers/ensureAuthenticated')
 const Users = require('../store/Users');
 var Favorites = require('../store/Favorites');
+
+
+function validateUser(user) {
+    let arrayErro = []
+    if (user.name.length < 5) {
+        arrayErro.push("Nome não pode ser menor que cinco")
+    }
+    if (user.email.length < 0) {
+        arrayErro.push('email não pode ser vazio')
+    }
+    if (user.password.length < 5) {
+        arrayErro.push("Password Fraco")
+    }
+    return arrayErro
+}
 
 module.exports = {
     getFavorites(req, res, next) {
@@ -21,7 +35,7 @@ module.exports = {
         }
     },
     create(req, res, next) {
-        res.render('user/create', { custom_css: 'login.css' })
+        res.render('user/create', { custom_css: 'login.css', flashInfo: req.flash('flashInfo') })
     },
     store(req, res, next) {
         user = {
@@ -29,15 +43,22 @@ module.exports = {
             email: req.body.email,
             password: req.body.password
         }
-        Users.getByEmail(user.email).then(email => {
-            if (email.length == 0) {
-                Users.insert(user).then(function() {
-                    res.send('criado com sucesso')
-                })
-            } else {
-                res.send('esse email já existe')
-            }
-        })
+        let errors = validateUser(user)
+        if (errors.length != 0) {
+            req.flash('flashInfo', errors)
+            res.redirect('back')
+        } else {
+            Users.getByEmail(user.email).then(email => {
+                if (email.length == 0) {
+                    Users.insert(user).then(function() {
+                        res.send('criado com sucesso')
+                    })
+                } else {
+                    req.flash('flashInfo', "esse email já existe no sistema")
+                    res.redirect('back')
+                }
+            })
+        }
     },
     storeSocialNetwork(req, res, next) {
         user = {
@@ -69,7 +90,6 @@ module.exports = {
                 })
             })
         } else {
-            console.log('chegou aqui')
             userID = req.user[0].id
             var favorite = {
                 id_user: userID,
