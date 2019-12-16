@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const passport = require('passport');
 var exphbs = require('express-handlebars');
+var flash = require('connect-flash');
+var session = require('express-session');
 
 
 var indexRouter = require('./routes/index');
@@ -34,6 +36,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// necessario para usar as flash-messages
+app.use(flash());
+app.use(session({
+    //1 day = 86400000 milissegundos
+    cookie: { maxAge: 86400000 },
+    secret: 'woot',
+    resave: false,
+    saveUninitialized: false
+}));
 
 // Set passport configs
 app.use(require('express-session')({ secret: 'shhhh...', resave: true, saveUninitialized: true }));
