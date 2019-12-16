@@ -12,9 +12,10 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                             <form action="/user/favorites" method="post">
-                                <input type="hidden" name="name" value="{{caracter.name}}">
+                                <input type="hidden" name="id" value="{{character.id}}">
+                                <input type="hidden" name="name" value="{{character.name}}">
                                 <input type="hidden" name="image_path"
-                                    value="{{this.thumbnail.path}}.{{caracter.thumbnail.extension}}">
+                                    value="{{character.thumbnail.path}}.{{character.thumbnail.extension}}">
                                 <button class="btn btn-sm btn-outline-secondary" type="submit">Favorite</button>
                             </form>
                         </div>
