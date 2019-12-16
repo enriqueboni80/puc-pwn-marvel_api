@@ -17,6 +17,12 @@
     }
 }
 
+@media (max-width: 766px) {
+    #img-banner-home {
+        width: 100%;
+    }
+}
+
 .jumbotron p:last-child {
     margin-bottom: 0;
 }
