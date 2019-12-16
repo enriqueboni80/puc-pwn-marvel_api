@@ -4,6 +4,8 @@ var index = require('../controllers/indexController')
 var login = require('../controllers/loginController')
 
 /* GET home page. */
-router.get('/', login);
+router.get('/', function(req, res) {
+    res.redirect('login')
+});
 
 module.exports = router;
