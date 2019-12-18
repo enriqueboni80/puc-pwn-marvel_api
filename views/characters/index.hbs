@@ -1,6 +1,12 @@
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row">
+            {{#if_array_is_empty characters.results}}
+            <div class="alert alert-danger col-md-12" style="text-align: center;" role="alert">
+                Resultado vazio
+            </div>
+            {{/if_array_is_empty}}
+
             {{#each characters.results}}
             <div class="col-md-3">
                 <div class="card mb-4 shadow-sm">

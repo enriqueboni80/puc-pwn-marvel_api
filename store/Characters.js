@@ -11,7 +11,7 @@ module.exports = {
         return axios.get(`${marvel_url}${url_params}&limit=${limitPerPage}&offset=${offset}`)
     },
     getByName(name) {
-        return axios.get(`${marvel_url}${url_params}&name=${name}`)
+        return axios.get(`${marvel_url}${url_params}&nameStartsWith=${name}`)
     },
     getByID(id) {
         return axios.get(`${marvel_url}/${id}${url_params}`)

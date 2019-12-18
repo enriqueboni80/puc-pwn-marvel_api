@@ -21,10 +21,13 @@ module.exports = {
         });
     },
     getByName(req, res) {
-        Characters.getByName(req.params.name).then((response) => {
-            return response.data.data.results;
+        Characters.getByName(req.query.search).then((response) => {
+            return response.data.data;
         }).then((characters) => {
-            res.render('characters/profile', { character: characters[0] });
+            res.render('characters/index', {
+                custom_css: 'characters.css',
+                characters
+            });
         }).catch(error => {
             console.log("\x1b[31m", "deu pau!   (ಥ﹏ಥ)  ")
         });
