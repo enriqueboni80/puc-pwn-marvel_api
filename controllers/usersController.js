@@ -52,7 +52,7 @@ module.exports = {
                 if (email.length == 0) {
                     Users.insert(user).then(function() {
                         req.flash('flashSucess', "Criado - already? go!!")
-                        res.redirect('/login')
+                        res.redirect('/login?sucess')
                     })
                 } else {
                     req.flash('flashInfo', "esse email já existe no sistema")
