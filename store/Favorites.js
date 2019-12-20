@@ -14,10 +14,9 @@ module.exports = {
     store(favorite) {
         return db(TABLE_NAME).insert(favorite);
     },
-    delete(characterID, userID) {
-        console.log(characterID, userID)
+    delete(favoriteID, userID) {
         return db(TABLE_NAME)
-            .where('id_character', characterID)
+            .where('id', favoriteID)
             .where('id_user', userID)
             .del();
     },

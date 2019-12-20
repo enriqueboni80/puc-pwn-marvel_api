@@ -103,17 +103,17 @@ module.exports = {
         }
     },
     deleteFavorites(req, res) {
-        characterID = req.params.characterID
+        favoriteID = req.params.favoriteID
         if (req.user.username) {
             Users.getByEmail(req.user.username).then(function(user) {
                 userID = user[0].id
-                Favorites.delete(characterID, userID).then(function() {
+                Favorites.delete(favoriteID, userID).then(function() {
                     res.redirect('/user')
                 })
             })
         } else {
             userID = req.user[0].id
-            Favorites.delete(characterID, userID).then(function() {
+            Favorites.delete(favoriteID, userID).then(function() {
                 res.redirect('/user')
             })
         }
