@@ -1,6 +1,8 @@
+require('dotenv').load();
+
 module.exports = {
-    foo: function(teste) {
-        return teste
+    creators: function() {
+        return "teste"
     },
     bar: function() {
         return "BAR!";
