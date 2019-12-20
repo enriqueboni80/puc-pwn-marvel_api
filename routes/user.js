@@ -8,6 +8,6 @@ router.get('/create', user.create);
 router.post('/store', user.store);
 router.get('/store-social-network', user.storeSocialNetwork);
 router.post('/favorites', auth.ensureAuthenticated, user.storeFavorites)
-router.get('/favorites/delete/:favoriteID', auth.ensureAuthenticated, user.deleteFavorites)
+router.delete('/favorites/:favoriteID', auth.ensureAuthenticated, user.deleteFavorites)
 
 module.exports = router;

@@ -7,6 +7,7 @@ const passport = require('passport');
 var exphbs = require('express-handlebars');
 var flash = require('connect-flash');
 var session = require('express-session');
+const methodOverride = require('method-override');
 
 
 var indexRouter = require('./routes/index');
@@ -36,6 +37,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
 
 // necessario para usar as flash-messages
 app.use(flash());

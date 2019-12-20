@@ -18,15 +18,16 @@
                             <div class="btn-group">
                                 <a class="btn btn-sm btn-outline-secondary"
                                     href="/characters/id/{{this.id_character}}">view</a>
-                                <a class="btn btn-sm btn-outline-secondary"
-                                    href="/user/favorites/delete/{{this.id}}">delete</a>
+                                <form action="/user/favorites/{{this.id}}?_method=DELETE" method="post">
+                                    <input class="btn btn-sm btn-outline-secondary" type="submit" value="deletar">
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             {{/each}}
-            
+
         </div>
     </div>
 </div>
