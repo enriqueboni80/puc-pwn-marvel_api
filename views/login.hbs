@@ -3,8 +3,13 @@
     <img src="/images/logo.png">
   </div>
   {{#if flashInfo}}
-    <div class="alert alert-danger" role="alert">{{flashInfo}}</div>
-    {{/if}}
+  <div class="alert alert-danger" role="alert">{{flashInfo}}</div>
+  {{/if}}
+
+  {{#if flashSucess}}
+  <div class=" alert alert-success" role="alert">{{flashSucess}}</div>
+  {{/if}}
+
   <div class="form-content">
     <form action="/auth/login" method="post">
       <div class="form-group">

@@ -51,7 +51,8 @@ module.exports = {
             Users.getByEmail(user.email).then(email => {
                 if (email.length == 0) {
                     Users.insert(user).then(function() {
-                        res.send('criado com sucesso')
+                        req.flash('flashSucess', "Criado - already? go!!")
+                        res.redirect('/login?sucess')
                     })
                 } else {
                     req.flash('flashInfo', "esse email já existe no sistema")
