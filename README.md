@@ -14,7 +14,6 @@ busca);
 * Quando clicar em algum personagem, deverá levar o usuário para uma página com os seguintes
 detalhes: Nome; Foto; Descrição;
 
-
 ## Configuracoes Iniciais
 ##### Configurar as variaveis de ambiente
 ```
@@ -25,7 +24,6 @@ copy .env__default .env
 ```
 npm run install-globals
 ```
-
 ##### Instalar as dependências
 ```
 npm install
@@ -34,47 +32,11 @@ npm install
 ```
 npm run knex migrate:latest
 ```
-
 ##### rodar seed para primeira inserção nas tabelas
 ```
 npm run knex seed:run
 ```
-
-
 ##### Start na aplicacao
 ```
 npm start
 ```
-
-## comandos para rodar o docker
-##### Rodar na root onde está o Dockerfile para gerar a imagem
-```
-docker build -t marvel_api_image .
-```
-
-##### rodar também na root para criar e rodar o container
-```
-docker run --name container_marvel -itd -p 3002:3000 --mount type=bind,source="$(pwd)",target=/app marvel_api_image
-```
-
-## utils:
-
-##### ver todos os containers
-```
-docker ps -a
-```  
-
-##### manejar container. rm deleta mas precisa parar antes
-```
-docker [start/stop/restart/rm] [nome container]
-```
-
-##### listar as imagens
-```
-docker images
-```
-
-##### remover imagem
-```
-docker image rmi [id imagem]
-``
