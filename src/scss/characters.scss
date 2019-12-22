@@ -3,10 +3,11 @@
     padding: 10px;
     border-radius: 4%;
     width: 370px;
+    margin: 40px auto 5px;
 }
 
 .paginator-current {
-    background-color: blue;
+    background-color: red;
     text-decoration: none;
     padding: 12px;
     border-left: 1px solid #d0d0db;

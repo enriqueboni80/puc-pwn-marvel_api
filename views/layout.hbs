@@ -17,7 +17,8 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <!-- Custom styles for this template -->
-  <link href="/stylesheets/album.css" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/all.css">
+  <link rel="stylesheet" href="/stylesheets/album.css">
   <link rel="stylesheet" href="/stylesheets/{{custom_css}}">
 </head>
 
@@ -36,15 +37,22 @@
               O Objetivo desse trabalho é colocar em prática os conteúdos e
               aprendizados que tivemos em sala. Para isso, foram elaborados <a target="_blank"
                 href="/files/trabalho_final.pdf">três opções
-                possíveis para o trabalho</a> e no qual definimos pela "Busca por heróis da marvel"</p>
+                possíveis para o trabalho</a> e no qual definimos pela "Busca por heróis da Marvel".
+                Algumas funcionalides como "login com GitHub" e "configuracao via Docker" chegaram a ser implementadas
+                mas como nao foram totalmente testadas preferimos deixar para futuras melhorias"
+                </p>
           </div>
           <div class="col-sm-4 offset-md-1 py-4">
             <h4 class="text-white">Entre em Contato</h4>
             <ul class="list-unstyled">
-              <li><a target="_blank" href="https://www.linkedin.com/in/enrique-bonifacio/" class="text-white">Enrique Bonifacio</a></li>
-              <li><a target="_blank" href="https://www.linkedin.com/in/darife/" class="text-white">Daniel Ferreira</a></li>
-              <li><a target="_blank" href="https://www.linkedin.com/in/rodolfo-bernardes-38653b19a/" class="text-white">Rodolfo Bernardes</a></li>
-              <li><a target="_blank" href="https://www.linkedin.com/in/sergisleymatias/" class="text-white">Sergisley Matias</a></li>
+              <li><a target="_blank" href="https://www.linkedin.com/in/enrique-bonifacio/" class="text-white">Enrique
+                  Bonifacio</a></li>
+              <li><a target="_blank" href="https://www.linkedin.com/in/darife/" class="text-white">Daniel Ferreira</a>
+              </li>
+              <li><a target="_blank" href="https://www.linkedin.com/in/rodolfo-bernardes-38653b19a/"
+                  class="text-white">Rodolfo Bernardes</a></li>
+              <li><a target="_blank" href="https://www.linkedin.com/in/sergisleymatias/" class="text-white">Sergisley
+                  Matias</a></li>
             </ul>
             <h5 class="text-white"><a href="/logout" class="text-white btn-logout">LogOut</a></h5>
           </div>
@@ -65,13 +73,12 @@
   </header>
 
   <main role="main">
-
     <section class="jumbotron text-center" <div class="container">
       <div style="margin-top: -31px; margin-bottom: 38px;">
         <img id="img-banner-home" src="/images/logo-home.jpg" />
       </div>
       <p>
-        <a href="/characters" class="btn btn-primary my-2">Todos os herois</a>
+        <a href="/characters?page=1" class="btn btn-primary my-2">Todos os herois</a>
         <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#modalSearchHero">
           Busca de Heroi
         </button>
@@ -79,9 +86,7 @@
       </p>
       </div>
     </section>
-
     {{{body}}}
-
   </main>
 
   <!-- Modal -->
@@ -95,12 +100,17 @@
         <div class="modal-body">
           <div class="search-container">
             <form class="form-inline my-2 my-lg-0" action="/characters/name">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search"
-                required>
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">search<i
-                  class="fa fa-search"></i></button>
+              <input class="form-control col-md-9 col-9" type="search" placeholder="Search" aria-label="Search"
+                name="search" required>
+              <button class="btn btn-outline-success col-md-2 col-2" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+              <i class="fa fa-question-circle col-md-1 col-1"
+                onmouseover="infoBox('* busca pelas primeiras letras em Ingles -  ex: Cap ou Spi ')"
+                aria-hidden="true"></i>
             </form>
           </div>
+          <div class="info-in-modal" style="margin-top: 10px;"></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -114,12 +124,16 @@
       <p class="float-right">
         <a href="#">Back to top</a>
       </p>
-      <p>Pós-graducao em Web Full Stack - PUCMINAS/2019 - consumindo <a href="https://developer.marvel.com/">©Marvel
+      <p>Pós-graducao em Web Full Stack - <a target="_blank"
+          href="https://www.pucminas.br/institucional/Paginas/a-puc-minas.aspx">PUCMINAS/2019</a> -
+        consumindo <a target="_blank" href="https://developer.marvel.com/">©Marvel
           API</a></p>
-      <p>Producted by Enrique, Rodolfo, Sergisley, Rodolfo e Daniel</p>
+      <p>Producted by <a target="_blank" href="https://www.linkedin.com/in/enrique-bonifacio/">Enrique</a>,
+        <a target="_blank" href="https://www.linkedin.com/in/rodolfo-bernardes-38653b19a/">Rodolfo</a>,
+        <a target="_blank" href="https://www.linkedin.com/in/sergisleymatias/">Sergisley</a> e
+        <a target="_blank" href="https://www.linkedin.com/in/darife/">Daniel</a></p>
     </div>
   </footer>
-
 
 </body>
 
@@ -132,8 +146,12 @@
   integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
+<script>
+  function infoBox(text) {
+    var d = document.getElementsByClassName('info-in-modal')[0]
+    d.innerHTML = text
+  }
+</script>
 <svg xmlns="http://www.w3.org/2000/svg" width="348" height="225" viewBox="0 0 348 225" preserveAspectRatio="none"
   style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;">
   <defs>
@@ -141,7 +159,5 @@
   </defs><text x="0" y="17"
     style="font-weight:bold;font-size:17pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text>
 </svg>
-
-
 
 </html>
